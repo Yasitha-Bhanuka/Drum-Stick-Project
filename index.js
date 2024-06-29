@@ -4,7 +4,10 @@
 for (var i = 0; i < document.querySelectorAll(".drum").length; i++) {
   document.querySelectorAll(".drum")[i].addEventListener("click", function () {
     var buttonInnerHTML = this.innerHTML;
+
     makeSound(buttonInnerHTML);
+
+    buttonAnimation(buttonInnerHTML);
   });
 }
 
@@ -52,4 +55,11 @@ function makeSound(Value) {
       console.log(Value);
       break;
   }
+}
+
+// make the animation 
+
+function buttonAnimation(currentKey) {
+  var activeButton = document.querySelector("." + currentKey);
+  activeButton.classList.add("pressed");
 }
